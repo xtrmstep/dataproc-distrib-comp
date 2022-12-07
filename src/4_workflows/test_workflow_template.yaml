@@ -1,0 +1,13 @@
+jobs:
+- pysparkJob:
+    args:
+      - ARG1
+      - ARG2
+      - ARG3
+      - ARG4
+    mainPythonFileUri: MAIN_PY
+  stepId: test_workflow-1
+placement:
+  clusterSelector:
+    clusterLabels:
+      sdce-type: testing
