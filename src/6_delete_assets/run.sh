@@ -20,7 +20,9 @@ gcloud dataproc autoscaling-policies delete "${CLUSTER_AUTOSCALE_NAME}" \
 --region "${GCP_REGION}" \
 --quiet
 
+gsutil -m rm -rf "gs://${CLUSTER_BUCKET}/*"
 gsutil rb -f "gs://${CLUSTER_BUCKET}"
+gsutil -m rm -rf "gs://${OUTPUT_BUCKET}/*"
 gsutil rb -f "gs://${OUTPUT_BUCKET}"
 
 gcloud iam service-accounts delete "${CLUSTER_SERVICE_ACCOUNT}" \
